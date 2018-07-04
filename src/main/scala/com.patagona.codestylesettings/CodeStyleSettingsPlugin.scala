@@ -1,5 +1,5 @@
-import com.lucidchart.sbt.scalafmt.ScalafmtCorePlugin.autoImport.scalafmtVersion
-import org.scalastyle.sbt.ScalastylePlugin.autoImport.scalastyleConfig
+import com.lucidchart.sbt.scalafmt.ScalafmtCorePlugin.autoImport._
+import org.scalastyle.sbt.ScalastylePlugin.autoImport._
 import sbt.Keys.baseDirectory
 import sbt._
 
