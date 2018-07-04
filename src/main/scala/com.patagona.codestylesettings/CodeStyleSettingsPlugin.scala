@@ -10,6 +10,8 @@ object CodeStyleSettingsPlugin extends AutoPlugin {
     Seq(
       scalastyleConfig := (baseDirectory in ThisBuild).value / "project" / "scalastyle_config.xml",
       scalastyleConfig in Test := (baseDirectory in ThisBuild).value / "project" / "scalastyle_config.xml",
+      scalastyleConfigUrl := Some("https://raw.githubusercontent.com/Patagona/code-style-settings-plugin/master/scalastyle_config.xml"),
+      scalastyleConfigUrlCacheFile := scalastyleConfig.value,
       scalafmtVersion := "1.5.1"
     )
   }
