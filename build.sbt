@@ -1,5 +1,5 @@
 name := "code-style-settings-plugin"
-scalaVersion := "2.10.6"
+scalaVersion := "2.12.6"
 sbtPlugin := true
 
 addSbtPlugin("com.lucidchart" % "sbt-scalafmt" % "1.15")
