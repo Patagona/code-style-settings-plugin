@@ -6,12 +6,7 @@ import sbt.Keys._
 import sbt._
 
 object CodeStyleSettingsPlugin extends AutoPlugin {
-  object autoImport {
-    val testScalaStyle = taskKey[Unit]("testScalaStyle")
-    val compileScalastyle = taskKey[Unit]("compileScalastyle")
-  }
 
-  import autoImport._
 
   override def requires: Plugins = org.scalastyle.sbt.ScalastylePlugin && com.lucidchart.sbt.scalafmt.ScalafmtCorePlugin
   override def trigger: PluginTrigger = allRequirements
@@ -19,11 +14,7 @@ object CodeStyleSettingsPlugin extends AutoPlugin {
     Seq(
       scalastyleConfig := (baseDirectory in ThisBuild).value / "project" / "scalastyle_config.xml",
       scalastyleConfig in Test := (baseDirectory in ThisBuild).value / "project" / "scalastyle_config.xml",
-      scalafmtVersion := "1.5.1",
-      testScalaStyle := scalastyle.in(Test).toTask("").value,
-      compileScalastyle := scalastyle.in(Compile).toTask("").value,
-      (test in Test) := ((test in Test) dependsOn testScalaStyle).value,
-      (test in Test) := ((test in Test) dependsOn compileScalastyle).value
+      scalafmtVersion := "1.5.1"
     )
   }
 }
